@@ -1,0 +1,45 @@
+alias sbt="/usr/local/sbt13/sbt.sh"
+alias sbt-trip="/usr/local/sbt13/sbt_trip.sh"
+alias sbt-upsell="/usr/local/sbt13/sbt_upsell.sh"
+alias sbt-admin="/usr/local/sbt13/sbt_admin.sh"
+alias sbt-insurance="/usr/local/sbt13/sbt_insurance.sh"
+alias sbt-location="/usr/local/sbt13/sbt_location.sh"
+alias sbt-webservices="/usr/local/sbt13/sbt_webservices.sh"
+alias sbt-vacation="/usr/local/sbt13/sbt_vacation.sh"
+alias sbt-air="/usr/local/sbt13/sbt_air.sh"
+alias sbt-hotel="/usr/local/sbt13/sbt_hotel.sh"
+alias sbt-car="/usr/local/sbt13/sbt_car.sh"
+alias sbt-activity="/usr/local/sbt13/sbt_activity.sh"
+alias sbt-prepackaged="/usr/local/sbt13/sbt_prepackaged.sh"
+alias sbt-cruise="/usr/local/sbt13/sbt_cruise.sh"
+alias sbt-cruise-promotions="/usr/local/sbt13/sbt_cruise_promotions.sh"
+alias sbt-tour-booking="/usr/local/sbt13/sbt_tour_booking.sh"
+alias sbt-arrival-guides="/usr/local/sbt13/sbt_arrival_guides.sh"
+
+# Directory aliases
+alias cd-tsttravel="cd ~/tst/tsttravel"
+
+alias sbt-compile-cruise="cd-tsttravel && sbt \";project cruise-web; compile\" && sbt \";project cruise-promotions-web; compile\""
+alias sbt-dataload-source="cd ~/tst/tsttravel && /usr/local/sbt13/sbt_datamanager.sh \";project data-manager; run\""
+alias sbt-cruise-source="cd ~/tst/tsttravel && sbt-cruise \";project cruise-web; run 9004\""
+alias sbt-cruise-promotions-source="cd ~/tst/tsttravel && sbt-cruise-promotions \";project cruise-promotions-web; run 9017\""
+alias launch-cruise="~/dev/scripts/launch-cruise.sh"
+alias compile-launch-cruise="sbt-compile-cruise && launch-cruise"
+
+alias compile-test-cruise-service="cd-tsttravel && sbt \"project cruise-service\" compile test"
+
+# Git aliases
+alias gp-tsttravel="cd-tsttravel && git pull"
+alias gc-master-gp-tsttravel="cd-tsttravel && git checkout master && git pull"
+
+# Mongo aliases
+alias mongo-qa="mongo --host data201.qa.tstllc.net --port 27017 --username {{username}} --password {{password}} --authenticationDatabase \"admin\""
+alias mongodump-qa-cruise="mongodump --host data201.qa.tstllc.net --port 27017 --username {{username}} --password {{password}} --authenticationDatabase \"admin\" --db cruise"
+
+# MySQL aliases
+alias mysql-local="mysql -u root -P 3306 --protocol=tcp"
+alias mysql-qa="mysql -u appuser -p -P 3306 --protocol=tcp --host data201.qa.tstllc.net"
+alias mysql-dump-qa="cd ~/dumps && mysqldump -u appuser -p -P 3306 --protocol=tcp --host data201.qa.tstllc.net TST > tst_qa_dump.sql"
+
+# Nginx configs
+alias go-to-nginx-dir="cd /usr/local/etc/nginx"
