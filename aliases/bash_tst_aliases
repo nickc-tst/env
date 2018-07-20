@@ -19,22 +19,35 @@ alias sbt-arrival-guides="/usr/local/sbt13/sbt_arrival_guides.sh"
 # Directory aliases
 alias cd-tsttravel="cd ~/tst/tsttravel"
 
-alias sbt-compile-cruise="cd-tsttravel && sbt \";project cruise-web; compile\" && sbt \";project cruise-promotions-web; compile\""
 alias sbt-dataload-source="cd ~/tst/tsttravel && /usr/local/sbt13/sbt_datamanager.sh \";project data-manager; run\""
 alias sbt-cruise-source="cd ~/tst/tsttravel && sbt-cruise \";project cruise-web; run 9004\""
 alias sbt-cruise-promotions-source="cd ~/tst/tsttravel && sbt-cruise-promotions \";project cruise-promotions-web; run 9017\""
+alias sbt-cruise-booking="cd ~/tst/cruise-booking && sbt clean compile run"
+alias sbt-trip-source="cd-tsttravel && sbt-trip \";project trip-web; run 4500\""
 alias launch-cruise="~/dev/scripts/launch-cruise.sh"
-alias compile-launch-cruise="sbt-compile-cruise && launch-cruise"
+alias launch-cruise-with-admin="~/dev/scripts/launch-cruise-with-admin.sh"
+alias compile-launch-cruise="~/dev/scripts/compile-launch-cruise.sh"
+alias sbt-cruise-admin-source="cd-tsttravel && sbt-cruise-promotions \";project cruise-promotions-web; run 9017\" && sbt-cruise \";project cruise-web; run 9004\" && sbt-admin \":project admin-web; run 9000\""
 
+alias sbt-compile-admin="cd-tsttravel && sbt \";project admin-web; compile\""
+alias sbt-admin-source="cd-tsttravel && sbt-admin \";project admin-web; run 9000\""
+
+alias sbt-compile-cruise="cd-tsttravel && sbt \";project cruise-web; compile\" && sbt \";project cruise-promotions-web; compile\""
+alias compile-launch-cruise="sbt-compile-cruise && launch-cruise"
 alias compile-test-cruise-service="cd-tsttravel && sbt \"project cruise-service\" compile test"
+alias compile-launch-cruise-with-admin="cd-tsttravel && sbt-compile-cruise && sbt-compile-admin && launch-cruise-with-admin"
+
+# UI
+alias launch-cruise-UI="cd ~/tst/ui-tsttravel && npm start -- cruise"
 
 # Git aliases
 alias gp-tsttravel="cd-tsttravel && git pull"
 alias gc-master-gp-tsttravel="cd-tsttravel && git checkout master && git pull"
 
 # Mongo aliases
-alias mongo-qa="mongo --host data201.qa.tstllc.net --port 27017 --username {{username}} --password {{password}} --authenticationDatabase \"admin\""
-alias mongodump-qa-cruise="mongodump --host data201.qa.tstllc.net --port 27017 --username {{username}} --password {{password}} --authenticationDatabase \"admin\" --db cruise"
+alias mongo-qa="mongo --host data201.qa.tstllc.net --port 27017 --username appuseradmin --password @ppwr!te --authenticationDatabase \"admin\""
+alias mongodump-qa-cruise="mongodump --host data201.qa.tstllc.net --port 27017 --username appuseradmin --password @ppwr!te --authenticationDatabase \"admin\" --db cruise"
+alias mongodump-qa-cruise-etl="mongodump --host data201.qa.tstllc.net --port 27017 --username appuseradmin --password @ppwr!te --authenticationDatabase \"admin\" --db cruise-etl"
 
 # MySQL aliases
 alias mysql-local="mysql -u root -P 3306 --protocol=tcp"
@@ -43,3 +56,6 @@ alias mysql-dump-qa="cd ~/dumps && mysqldump -u appuser -p -P 3306 --protocol=tc
 
 # Nginx configs
 alias go-to-nginx-dir="cd /usr/local/etc/nginx"
+
+# Utils
+alias edit-aliases="vim ~/.bash_tst_aliases"
